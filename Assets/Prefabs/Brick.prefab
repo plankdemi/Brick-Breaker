@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5738988313996755263}
   - component: {fileID: 8681718675258608988}
   - component: {fileID: -2285975731089297202}
+  - component: {fileID: 1333704995590648885}
   m_Layer: 0
   m_Name: Brick
   m_TagString: Enemy
@@ -167,3 +168,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 3
+--- !u!114 &1333704995590648885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360269922973609040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8c3976ba814434eb85c87b9ecb76e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'

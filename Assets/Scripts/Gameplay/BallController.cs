@@ -1,13 +1,10 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BallController : MonoBehaviour
 {
 
-    public TextMeshProUGUI score;
-    public TextMeshProUGUI lives;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
 
     public bool sticky;
     public GameObject paddle;
@@ -27,11 +24,11 @@ public class BallController : MonoBehaviour
     {
         if (rb.linearVelocityY < 0f)
         {
-            rb.linearVelocityY = -Player.desiredVelocity;
+            rb.linearVelocityY = -GameManager.player.desiredVelocity;
         }
         else if (rb.linearVelocityY > 0f)
         {
-            rb.linearVelocityY = Player.desiredVelocity;
+            rb.linearVelocityY = GameManager.player.desiredVelocity;
 
         }
 
@@ -43,32 +40,22 @@ public class BallController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(other.gameObject);
-            Player.Score += 10;
-            score.text = "SCORE: " + Player.Score;
 
-        }
-
-
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Bounds"))
         {
             Debug.Log("triggered");
+            --GameManager.player.Lives;
 
-            if (Player.Lives <= 0)
+            if (GameManager.player.Lives <= 0)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else
             {
-                Player.Lives -= 1;
-                lives.text = "LIVES: " + Player.Lives;
+
+
                 rb.linearVelocity = Vector2.zero;
                 rb.angularVelocity = 0f;
                 sticky = true;
