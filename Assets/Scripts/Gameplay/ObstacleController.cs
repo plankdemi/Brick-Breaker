@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
 
     private int health;
-
+    public event Action BrickDestroyed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +21,8 @@ public class ObstacleController : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(gameObject);
-                GameManager.player.Score += 10;
+                BrickDestroyed?.Invoke();
+
             }
         }
     }

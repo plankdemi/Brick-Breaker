@@ -24,11 +24,11 @@ public class PaddleController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         Vector2 input = moveAction.action.ReadValue<Vector2>();
 
-        paddleRb.AddForce(new Vector2(input.x, 0f));
+        paddleRb.AddForce(new Vector2(input.x, 0f) * Time.deltaTime * 1000);
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
