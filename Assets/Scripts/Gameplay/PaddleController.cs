@@ -8,19 +8,13 @@ public class PaddleController : MonoBehaviour
     Rigidbody2D ballRb;
     BallController ballController;
     public GameObject Ball;
-    private Player player;
-
 
 
     [Header("Input Actions")]
     public InputActionReference moveAction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        player = new Player(3);
 
-    }
     void Awake()
     {
         paddleRb = GetComponent<Rigidbody2D>();
@@ -67,7 +61,7 @@ public class PaddleController : MonoBehaviour
         if (ballRb && ballController)
         {
 
-            ballController.sticky = false;
+            ballController.toggleSticky();
 
             ballRb.AddForce(Vector2.up);
             ballRb.linearVelocityY = GameManager.player.desiredVelocity;

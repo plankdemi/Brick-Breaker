@@ -6,7 +6,7 @@ public class BallController : MonoBehaviour
 
 
 
-    public bool sticky;
+    public bool sticky { get; private set; }
     public GameObject paddle;
     private float paddleOffset = 0.5f;
 
@@ -37,6 +37,12 @@ public class BallController : MonoBehaviour
         {
             transform.position = new Vector3(paddle.transform.position.x, paddle.transform.position.y + paddleOffset, paddle.transform.position.z);
         }
+
+    }
+
+    public void toggleSticky()
+    {
+        sticky = !sticky;
 
     }
 

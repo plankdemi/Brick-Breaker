@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI score;
     public TextMeshProUGUI lives;
 
-    public static Player player;
+    public static Player player { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void awake()
     {
         player = new Player(3);
     }
